@@ -6,11 +6,7 @@ require_once __DIR__ . '/includes/scripts/database.php';
 $connection = getConnection();
 
 // step 2 run a query against our database
-$query = mysqli_query($connection, 'SELECT * FROM issues;');
-
-// step 3 fetch all the results (not best practice)
-$results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-var_dump($results);
+$queryResult = mysqli_query($connection, 'SELECT * FROM issues;');
 
 ?>
 
@@ -27,14 +23,15 @@ var_dump($results);
 		<h2>Issues</h2>
 		<ul>
 			<!-- loop over each result from our query -->
-			<?php foreach($results as $result): ?>
+			<!-- the reason we use mysli fetch array is because this loads the next record every time we call it -->
+			<?php while ($result = mysqli_fetch_array($queryResult)): ?>
 			<li>
 				<article>
 					<!-- and print the name -->
 					<h3><?php echo $result['name'];?></h3>
 				</article>
 			</li>
-			<?php endforeach;?>
+			<?php endwhile; ?>
 		</ul>
 	</main>
 </body>
