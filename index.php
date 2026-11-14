@@ -24,11 +24,15 @@ $queryResult = mysqli_query($connection, 'SELECT * FROM issues;');
 		<ul>
 			<!-- loop over each result from our query -->
 			<!-- the reason we use mysli fetch array is because this loads the next record every time we call it -->
-			<?php while ($result = mysqli_fetch_array($queryResult)): ?>
+			<?php while ($issue = mysqli_fetch_array($queryResult)): ?>
 			<li>
 				<article>
 					<!-- and print the name -->
-					<h3><?php echo $result['name'];?></h3>
+					<h3>
+						<a href="issue.php?id=<?php echo $issue['id'];?>">
+						<?php echo $issue['name'];?>
+						</a>
+					</h3>
 				</article>
 			</li>
 			<?php endwhile; ?>
