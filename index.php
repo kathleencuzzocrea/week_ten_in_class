@@ -23,5 +23,19 @@ var_dump($results);
 </head>
 <body>
 	<h1>PHP and HTML</h1>
+	<main>
+		<h2>Issues</h2>
+		<ul>
+			<!-- loop over each result from our query -->
+			<?php foreach($results as $result): ?>
+			<li>
+				<article>
+					<!-- and print the name -->
+					<h3><?php echo $result['name'];?></h3>
+				</article>
+			</li>
+			<?php endforeach;?>
+		</ul>
+	</main>
 </body>
 </html>

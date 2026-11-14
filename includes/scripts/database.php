@@ -13,4 +13,4 @@ function getConnection()
     $port = 3306; //windows
 
     return mysqli_connect($hostname, $username, $password, $database, $port);
-}
+};
