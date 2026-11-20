@@ -6,8 +6,9 @@ require_once __DIR__ . '/includes/scripts/database.php';
 $connection = getConnection();
 
 $id = $_GET['id'] ?? null;
+$id = intval($id);
 
-if ($id == null){
+if ($id == null || ! is_int($id) || $id === 0){
     // set response code
     http_response_code(404);
     // exit out with an error and print to the browser
