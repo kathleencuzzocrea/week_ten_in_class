@@ -16,6 +16,12 @@ function processFormInputs(array $input){
     return $result;
 }
 
+function validateInputs(array $inputs): bool {
+    // add individual field validations here;
+
+    return true;
+}
+
 function createNewIssue(
     string $name, 
     string $date, 
@@ -32,7 +38,10 @@ function createNewIssue(
 }
 
 $input = processFormInputs($_POST);
-
+$validated = validateInputs($input);
+if (! $validated){
+    // error
+}
 $success = createNewIssue($input['name'], $input['date'], $input['published']);
 
 header('Location: /week_ten_in_class/add-issue.php');
