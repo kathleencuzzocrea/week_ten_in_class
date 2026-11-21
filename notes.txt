@@ -1,0 +1,26 @@
+bluetooth speaker 
+    for this class 
+    - the only thing is the entirely completed assignment 
+    - accessibility related stuff!!!
+        - aria
+        - tab
+        - videos, images should include accesible elements
+    - 10% of grade, 100 marks
+    
+wamp in applications folder
+www 
+week_num
+
+http://localhost/week_eight/
+
+Requests you can make with your browser
+- GET 
+	any time you load a page in your browser you make a GET request
+- POST
+- PUT/PATCH
+- DELETE
+
+http://localhost/week_eight/?whichList=1
+http://localhost/week_eight/cats
+
+http://localhost/week_eight/cats.php?cat=Bella
