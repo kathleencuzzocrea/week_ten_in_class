@@ -16,6 +16,13 @@ if ($id == null || ! is_int($id) || $id === 0){
     // header('Location: index.php');
 }
 
+// prepare the query with thew wildcarss
+$statement = mysqli_prepare($connection, 'SELECT * FROM issues WHERE id = ?;');
+// execute the query replacing the wildcards with the array of values in order
+$success = mysqli_stmt_execute($statement, [$id]);
+// convert the now execcuted statement into a mysqli result object so we can iterate over it
+$queryResult = mysqli_stmt_get_result($statement);
+
 // step 2 run a query against our database
 $queryResult = mysqli_query($connection, 'SELECT * FROM issues WHERE id = ' . $id . ';');
 
